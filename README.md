@@ -1,3 +1,3 @@
 # SCRABBLE
 
-Angular Web app for https://scrabble.rip/
+Angular Web app for http://scrabble.rip/
