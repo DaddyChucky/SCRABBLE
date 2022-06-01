@@ -1,0 +1,23 @@
+<div id="vp-select">
+    <mat-grid-list cols="6" rowHeight="75px" class="mat-grid-list">
+        <mat-grid-tile><mat-icon class="icon-def">android</mat-icon></mat-grid-tile>
+        <mat-grid-tile colspan="3">Votre adversaire virtuel :</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+            <div class="vp-wrapper">
+                <span class="vp-name">{{ chosenName }}</span>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile><mat-icon class="icon-def">bar_chart</mat-icon></mat-grid-tile>
+        <mat-grid-tile colspan="3">Difficulté :</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+            <mat-button-toggle-group value="beginner" (click)="sendVirtualPlayer()">
+                <mat-button-toggle color="primary" value="beginner" (click)="setVirtualPlayerDifficulty(this.virtualPlayerDifficultyEnum.BEGINNER)">
+                    Débutant
+                </mat-button-toggle>
+                <mat-button-toggle value="expert" (click)="setVirtualPlayerDifficulty(this.virtualPlayerDifficultyEnum.EXPERT)"
+                    >Expert</mat-button-toggle
+                >
+            </mat-button-toggle-group>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

@@ -1,0 +1,26 @@
+<div #easel class="easel-container">
+    <img id="easel-img" src="assets/img/easel-image.png" alt="easel" />
+    <div class="tiles-container">
+        <app-tile
+            class="tiles"
+            *ngFor="let tile of tiles"
+            [playerTile]="tile"
+            (contextmenu)="onTileRightClick($event, tile)"
+            (click)="onTileLeftClick(tile)"
+            [class.isRightClicked]="tile.rightClicked"
+            [class.isLeftClicked]="tile.leftClicked"
+        ></app-tile>
+    </div>
+</div>
+<div class="exchange-buttons" *ngIf="hasRightClickedTile">
+    <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!isPlayerTurn || lessThanSevenLetters"
+        (click)="exchangeSelectedLetters()"
+        id="button-exchange"
+    >
+        Échanger : {{ displayLettersToExchange }}
+    </button>
+    <button mat-raised-button color="warn" (click)="removeAllLettersToExchange()" id="button-cancel">Annuler</button>
+</div>

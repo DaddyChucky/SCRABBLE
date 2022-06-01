@@ -1,0 +1,28 @@
+<div class="add-virtual-container">
+    <h2 mat-dialog-title id="title">Ajouter un joueur virtuel</h2>
+    <div mat-dialog-content>
+        <div class="add-virtual-player-name">
+            <div class="setting difficulty">
+                <mat-chip-list class="setting-label"> <mat-chip disabled="true">1. Choisir la difficulté</mat-chip></mat-chip-list>
+                <mat-button-toggle-group #playerDifficulty="matButtonToggleGroup" class="setting-input" value="expert">
+                    <mat-button-toggle class="difficulty-setting" value="beginner">Débutant</mat-button-toggle>
+                    <mat-button-toggle class="difficulty-setting" value="expert">Expert</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <br />
+            <div class="setting name">
+                <mat-chip-list class="setting-label"> <mat-chip disabled="true">2. Choisir le nom</mat-chip></mat-chip-list>
+                <mat-form-field appearance="fill" class="setting-input">
+                    <mat-label>Nom du joueur virtuel</mat-label>
+                    <input matInput [(ngModel)]="newPlayerName" class="player-input" />
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions align="center">
+        <button mat-button mat-dialog-close><mat-icon>cancel</mat-icon>Annuler</button>
+        <button mat-button [disabled]="!isValidSubmission" [mat-dialog-close]="true" (click)="this.addNewPlayer()">
+            <mat-icon>add_circle</mat-icon>Ajouter
+        </button>
+    </div>
+</div>

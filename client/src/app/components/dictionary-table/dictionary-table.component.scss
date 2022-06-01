@@ -1,0 +1,82 @@
+#dictionary-panel-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.dictionary-table {
+    width: 100%;
+    text-align: center;
+    background-color: #b699a4;
+}
+
+.dictionary-table th {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center !important;
+}
+
+.dictionary-table button {
+    background: #713e51;
+    color: white;
+    text-align: center;
+    align-self: center;
+}
+
+.dictionary-table button:disabled {
+    background-color: #713e51;
+    opacity: 20%;
+}
+
+.title-panel {
+    color: white;
+    padding: 3px 10px 3px 10px;
+}
+
+#addButton {
+    background: #5f3444;
+    color: white;
+    width: 40%;
+    align-self: center;
+    text-align: center;
+}
+
+#addButton:disabled {
+    background: #7e6d73;
+    color: white;
+}
+
+.textFormField {
+    width: 95%;
+    text-align: center;
+}
+
+textarea {
+    text-align: justify;
+}
+
+.dictionary-input:disabled {
+    color: black;
+}
+
+.mat-column-description {
+    width: 40%;
+}
+
+.mat-column-actions {
+    width: 10%;
+}
+
+.mat-column-download {
+    width: 15%;
+}
+
+.not-ready {
+    color: white;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}

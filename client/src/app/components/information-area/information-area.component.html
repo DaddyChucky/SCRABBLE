@@ -1,0 +1,8 @@
+<div id="player-informations" [ngClass]="getPlayerClass(player)" *ngFor="let player of playersOrderedByScore">
+    <mat-icon *ngIf="isCurrentPlayer(player)">person</mat-icon>
+    <span id="player-name">{{ player.name }}</span>
+    <div class="informations-right">
+        <span id="player-score">{{ player.score }}</span>
+        <span *ngIf="hasLessThan7Letters(player)">[{{ player.tiles.length }} lettres]</span>
+    </div>
+</div>

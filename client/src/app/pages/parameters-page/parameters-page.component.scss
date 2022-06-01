@@ -1,0 +1,121 @@
+.mat-grid-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
+}
+
+.mat-grid-tile {
+    text-align: left !important;
+}
+
+#timer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#timer button {
+    margin-left: 3% !important;
+    margin-right: 3% !important;
+    font-size: 35px;
+}
+
+.mainPageContainer {
+    background: #fff;
+    font-size: 18px;
+    font-family: 'Roboto';
+    padding: 2%;
+    box-shadow: 5px 5px rgb(0, 7, 21);
+    border: 1px groove rgb(0, 7, 21);
+    border-radius: 2%;
+    text-align: left;
+    margin-top: 8.5%;
+}
+
+.username-fill,
+.username-fill input,
+.username-fill input:hover {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.icon-def {
+    font-size: 40px;
+    margin-top: -15%;
+    color: rgb(0, 7, 21);
+}
+
+.div-btn-suivant {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.div-btn-suivant button {
+    font-size: 18px;
+    width: 115px;
+    height: 60px;
+}
+
+#params {
+    margin-top: 10%;
+}
+
+#form-field-valid-username {
+    width: 50%;
+}
+
+#info-bar {
+    margin-left: 1%;
+}
+
+.warning {
+    color: indianred;
+    font-size: 32px;
+}
+
+.success {
+    color: green;
+    font-size: 32px;
+}
+
+#dec-timer {
+    border: 2px solid black;
+    background: white;
+    color: black;
+    margin-right: 1%;
+}
+
+#inc-timer {
+    border: 2px solid black;
+    background: black;
+    color: white;
+    margin-right: 1%;
+}
+
+#form-field-dico {
+    width: 50%;
+}
+
+#proceed-btn {
+    border: 1px solid green;
+}
+
+#proceed-btn-icon {
+    color: green;
+}
+
+.helper-btn-size {
+    font-size: 20px;
+}
+
+#proceed-container {
+    border: 2px solid red;
+}
+
+#proceed-inside-container {
+    text-align: center;
+}

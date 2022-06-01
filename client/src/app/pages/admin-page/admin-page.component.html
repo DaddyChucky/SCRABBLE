@@ -1,0 +1,68 @@
+<div class="background">
+    <h1 class="title-page">Mode admin</h1>
+    <div class="adminPageContainer">
+        <button mat-raised-button class="outside-accordion-button" (click)="resetScores()">
+            <mat-icon>autorenew</mat-icon> <span>Réinitialiser les meilleurs scores</span>
+        </button>
+        <br />
+        <mat-accordion class="accordion-admin" multi>
+            <mat-expansion-panel id="dictionary-panel" [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>import_contacts</mat-icon> <span class="title-panel">Dictionnaires</span>
+                        <button mat-raised-button class="reset-button dict" (click)="this.resetDictionaries()">
+                            <mat-icon>autorenew</mat-icon>
+                        </button></mat-panel-title
+                    >
+                    <mat-panel-description> Modifier, télécharger ou supprimer un dictionnaire </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-dictionary-table [dictionaries]="dictionaries"></app-dictionary-table>
+            </mat-expansion-panel>
+            <mat-expansion-panel id="virtual-player-panel" [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>assignment_ind</mat-icon> <span class="title-panel"> Joueurs virtuels </span>
+                        <button mat-raised-button class="reset-button player" (click)="this.resetVirtualPlayer()">
+                            <mat-icon>autorenew</mat-icon>
+                        </button></mat-panel-title
+                    >
+                    <mat-panel-description> Consulter la liste de noms de joueur virtuel </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="virtual-player-tables">
+                    <div *ngIf="isServerNotReady" class="not-ready">
+                        <h1>En attente du serveur ...</h1>
+                        <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+                    </div>
+                    <app-virtual-player-list
+                        *ngIf="!isServerNotReady"
+                        [playerNamesList]="this.beginnerPlayers"
+                        [tableTile]="beginnerTableTitle"
+                    ></app-virtual-player-list>
+                    <app-virtual-player-list
+                        *ngIf="!isServerNotReady"
+                        [playerNamesList]="this.expertPlayers"
+                        [tableTile]="expertTableTitle"
+                    ></app-virtual-player-list>
+                </div>
+                <br />
+                <div class="add-virtual-player">
+                    <button mat-raised-button id="addButton" (click)="openAddVirtualPlayerDialog()" [disabled]="isServerNotReady">
+                        <mat-icon>add_circle</mat-icon> <span class="title-panel">Ajouter un nom de joueur virtuel</span>
+                    </button>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel id="historic-panel" [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon> list_alt</mat-icon> <span class="title-panel"> Historique des parties </span
+                        ><button mat-raised-button class="reset-button history" (click)="this.resetGameLogs()">
+                            <mat-icon>autorenew</mat-icon>
+                        </button>
+                    </mat-panel-title>
+                    <mat-panel-description> Consulter la liste des parties jouées </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-game-history></app-game-history>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

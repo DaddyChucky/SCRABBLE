@@ -1,0 +1,44 @@
+<mat-card class="quest-card">
+    <mat-card-title align="center"> <mat-icon>people</mat-icon>Objectifs publics </mat-card-title>
+    <mat-chip-list>
+        <mat-chip class="quest">
+            <mat-chip-avatar [ngClass]="this.getQuestClass(publicQuests[0].isAccomplished)">
+                <mat-icon *ngIf="!publicQuests[0].isAccomplished">new_releases</mat-icon>
+                <mat-icon *ngIf="publicQuests[0].isAccomplished">check_circle</mat-icon>
+            </mat-chip-avatar>
+            {{ publicQuests[0].points }} points - {{ publicQuests[0].name }}
+        </mat-chip>
+        <mat-chip class="quest">
+            <mat-chip-avatar [ngClass]="this.getQuestClass(publicQuests[1].isAccomplished)">
+                <mat-icon *ngIf="!publicQuests[1].isAccomplished">new_releases</mat-icon>
+                <mat-icon *ngIf="publicQuests[1].isAccomplished">check_circle</mat-icon>
+            </mat-chip-avatar>
+            {{ publicQuests[1].points }} points - {{ publicQuests[1].name }}
+        </mat-chip>
+    </mat-chip-list>
+</mat-card>
+<mat-card class="quest-card">
+    <mat-card-title align="center"> <mat-icon>person</mat-icon> Objectifs privés </mat-card-title>
+    <mat-chip-list>
+        <mat-chip class="quest">
+            <mat-chip-avatar [ngClass]="this.getQuestClass(privateQuestCurrentPlayer.isAccomplished)">
+                <mat-icon *ngIf="!privateQuestCurrentPlayer.isAccomplished">new_releases</mat-icon>
+                <mat-icon *ngIf="privateQuestCurrentPlayer.isAccomplished">check_circle</mat-icon>
+            </mat-chip-avatar>
+            {{ privateQuestCurrentPlayer.points }} points - {{ privateQuestCurrentPlayer.name }}
+        </mat-chip>
+        <mat-chip class="player"> {{ currentPlayerName }} </mat-chip>
+        <mat-chip [ngClass]="isQuestHidden(privateQuestOpponentPlayer.isAccomplished)">
+            <mat-chip-avatar>
+                <mat-icon>check_circle</mat-icon>
+            </mat-chip-avatar>
+            <span *ngIf="privateQuestOpponentPlayer.isAccomplished">
+                {{ privateQuestOpponentPlayer.points }} points - {{ privateQuestOpponentPlayer.name }}
+            </span>
+            <span *ngIf="!privateQuestOpponentPlayer.isAccomplished">
+                {{ hiddenMessage }}
+            </span>
+        </mat-chip>
+        <mat-chip class="player"> {{ opponentPlayerName }} </mat-chip>
+    </mat-chip-list>
+</mat-card>

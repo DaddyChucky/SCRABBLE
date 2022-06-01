@@ -1,0 +1,221 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+$indigo-pink-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: mat.define-palette(mat.$indigo-palette),
+            accent: mat.define-palette(mat.$pink-palette, A200, A100, A400),
+            warn: mat.define-palette(mat.$red-palette),
+        ),
+    )
+);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($indigo-pink-theme);
+.deeppurple-amber-theme {
+    $deeppurple-amber-theme: mat.define-light-theme(
+        (
+            color: (
+                primary: mat.define-palette(mat.$deep-purple-palette),
+                accent: mat.define-palette(mat.$amber-palette, A200, A100, A400),
+            ),
+        )
+    );
+    @include mat.all-component-colors($deeppurple-amber-theme);
+}
+
+.pink-bluegrey-theme {
+    $pink-bluegrey-theme: mat.define-dark-theme(
+        (
+            color: (
+                primary: mat.define-palette(mat.$pink-palette, 700, 500, 900),
+                accent: mat.define-palette(mat.$blue-grey-palette, A200, A100, A400),
+            ),
+        )
+    );
+    @include mat.all-component-colors($pink-bluegrey-theme);
+}
+
+.purple-green-theme {
+    $purple-green-theme: mat.define-dark-theme(
+        (
+            color: (
+                primary: mat.define-palette(mat.$purple-palette, 700, 500, 800),
+                accent: mat.define-palette(mat.$green-palette, A200, A100, A400),
+            ),
+        )
+    );
+    @include mat.all-component-colors($purple-green-theme);
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto;
+    height: 100%;
+}
+
+.background {
+    background-image: url(./assets/img/scrabble.jpg);
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.mainPageContainer {
+    text-align: center;
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+.mat-dialog-container {
+    background: rgba(0, 0, 0, 0.75);
+    min-width: 400px;
+    max-width: 900px;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorMessage {
+    font-size: 1.5em;
+    color: white;
+}
+
+mat-dialog-container {
+    padding: 0px 0px 0px 0px !important;
+    justify-content: center;
+    align-items: center;
+}
+
+h1.title-page {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    font-size: 750%;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 0 4px 30px #000;
+    padding: 0 0 40px 50px;
+    text-align: center;
+}
+
+h2.subtitle-page {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    color: #000;
+    display: block;
+    font-size: 400%;
+    -webkit-text-stroke: 0.1px #fff;
+    text-shadow: 0 4px 50px #000;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.vp-wrapper {
+    font-size: 18px;
+}
+
+.vp-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDxmQ4MsClS3YNOmm2TDg01nG79HG-l9lMpzhE4WsD7NBSwlg3MEyQL9Eb0KnjdOi-VbI&usqp=CAU);
+    background-clip: text;
+    background-size: contain;
+    animation: fire 15s linear infinite; // https://www.youtube.com/watch?v=A264rF0cpyM&ab_channel=Onlinewebustaad
+}
+
+@keyframes fire {
+    0% {
+        background-position: left 0 top 25px;
+    }
+    50% {
+        background-position: left 130px top -35px;
+    }
+    100% {
+        background-position: left 250px top -35px;
+    }
+}
+
+.waiting-info {
+    flex-basis: 50%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+/**
+ * ==============================================
+ * Dot Flashing https://codepen.io/nzbin/pen/GGrXbp
+ * ==============================================
+ */
+.dot-flashing {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #000;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: 0.5s;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+
+.dot-flashing::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #000;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s;
+}
+
+.dot-flashing::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #000;
+    color: #000;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s;
+}
+
+@keyframes dotFlashing {
+    0% {
+        background-color: #000;
+    }
+    50%,
+    100% {
+        background-color: #ebe6ff;
+    }
+}

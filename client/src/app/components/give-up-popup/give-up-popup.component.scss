@@ -1,0 +1,33 @@
+.button {
+    width: 30%;
+    margin: 10%;
+    padding: 10px;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 25px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#accept {
+    background-color: rgb(93, 226, 182);
+}
+
+#reject {
+    background-color: rgb(238, 140, 130);
+}
+
+h2 {
+    text-align: center;
+    color: white;
+}
+
+#popup {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+export const GRID_SIZE = 15;
+export const LENGHT_LONG_WORD = 7;
+export const MIN_CORNERS = 2;
+export const TWO_TIMES = 2;
+export const THREE_TIMES = 3;
+export const MAJ_E_CHAR = 'E';
+export const MIN_E_CHAR = 'e';
+export const FIVE_SECONDS = 5;
+export const MINIMUM_LENGTH = 5;

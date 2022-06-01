@@ -1,0 +1,31 @@
+.left-side-buttons {
+    width: 80%;
+    margin: 10%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 25px;
+}
+
+#play-button {
+    background-color: #93d89c;
+}
+
+#skip-button {
+    background-color: #76e6df;
+}
+
+#leave-button {
+    background-color: #edb2b1;
+}
+
+#give-up-button {
+    background-color: #edb2b1;
+}
+
+#end-game-button {
+    background-color: #76e6df;
+}

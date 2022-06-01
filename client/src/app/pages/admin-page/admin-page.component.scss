@@ -1,0 +1,106 @@
+h1.title-page {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    color: white;
+    display: block;
+    font-size: 600%;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 0 4px 15px black;
+    padding: 0 0 50px 50px;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.adminPageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.accordion-admin {
+    width: 80%;
+}
+
+#dictionary-panel {
+    background-color: #874c62;
+}
+
+#virtual-player-panel {
+    background-color: #c98474;
+}
+
+#historic-panel {
+    background-color: #9ec8c1;
+}
+
+.title-panel {
+    color: white;
+    padding: 3px 10px 3px 10px;
+}
+
+.accordion-admin mat-panel-title {
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.accordion-admin mat-panel-description {
+    color: white;
+    font-style: italic;
+    justify-content: right;
+}
+
+.outside-accordion-button {
+    background-color: #c4b257;
+    color: white;
+}
+
+.virtual-player-tables {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.virtual-player-tables app-virtual-player-list {
+    width: 35%;
+}
+
+#addButton {
+    color: white;
+    background: #b05b48;
+    align-self: center;
+}
+
+.add-virtual-player {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-button {
+    background-color: rgb(251, 251, 251);
+    color: goldenrod;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: center;
+}
+
+.not-ready {
+    color: white;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+#addButton:disabled {
+    background: #7e6d73;
+    color: white;
+}

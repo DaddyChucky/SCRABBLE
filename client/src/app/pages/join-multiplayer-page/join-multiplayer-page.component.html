@@ -1,0 +1,149 @@
+<div class="background">
+    <app-home-btn></app-home-btn>
+    <div id="container">
+        <div id="titles">
+            <h1 class="title-page">Rejoindre une partie</h1>
+            <h2 *ngIf="isClassic" class="subtitle-page">CLASSIQUE</h2>
+            <h2 *ngIf="!isClassic" class="subtitle-page">LOG2990</h2>
+        </div>
+        <div class="mainPageContainer">
+            <mat-grid-list cols="6" rowHeight="75px" class="mat-grid-list">
+                <mat-grid-tile><mat-icon class="icon-def">person_pin</mat-icon></mat-grid-tile>
+                <mat-grid-tile>Nom :</mat-grid-tile>
+                <mat-grid-tile colspan="4">
+                    <mat-form-field appearance="fill" class="username-fill" id="first-form-field">
+                        <input
+                            (ngModelChange)="update()"
+                            type="text"
+                            matInput
+                            ngDefaultControl
+                            [disabled]="lobbyJoined && !isEjectedFromLobby"
+                            [(ngModel)]="player2Username"
+                            [ngModelOptions]="{ standalone: true }"
+                            placeholder="Ex. Roger"
+                        />
+                        <button
+                            [disabled]="lobbyJoined && !isEjectedFromLobby"
+                            *ngIf="player2Username"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="player2Username = ''"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <span *ngIf="player2Username" id="adversary-username">
+                        <mat-icon matTooltip="Nom d'utilisateur invalide" *ngIf="!isUsernameValid" class="invalid-username"> error </mat-icon>
+                        <mat-icon
+                            matTooltip="Vous ne pouvez pas avoir le même nom d'utilisateur que l'hôte"
+                            *ngIf="isSameUsername && isUsernameValid"
+                            class="invalid-username"
+                        >
+                            error
+                        </mat-icon>
+                        <mat-icon matTooltip="Nom d'utilisateur valide" *ngIf="isUsernameValid && !isSameUsername" class="valid-username"
+                            >check</mat-icon
+                        >
+                    </span>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <div id="waiting-lobby">
+                <div *ngIf="!isUsernameValid || player2Username === ''" class="flexer">
+                    <div class="waiting-info">
+                        <span>En attente d'un nom valide</span>
+                        <div class="dot-flashing flashing-dots"></div>
+                    </div>
+                    <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+                </div>
+                <div *ngIf="isUsernameValid && player2Username !== '' && isSameUsername" class="flexer">
+                    <div class="waiting-info">
+                        <span>En attente d'un nom autre que celui de l'hôte</span>
+                        <div class="dot-flashing flashing-dots"></div>
+                    </div>
+                    <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+                </div>
+                <div
+                    *ngIf="this.liveLobbies.length === 0 && isUsernameValid && player2Username !== '' && !isSameUsername && !lobbyJoined"
+                    class="flexer"
+                >
+                    <div class="waiting-info">
+                        <span>En attente d'une partie</span>
+                        <div class="dot-flashing flashing-dots"></div>
+                    </div>
+                    <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+                </div>
+                <div *ngIf="lobbyJoined && !isEjectedFromLobby && !isSameUsername" class="flexer">
+                    <div class="waiting-info">
+                        <span>La partie commencera sous peu</span>
+                        <div class="dot-flashing flashing-dots"></div>
+                    </div>
+                    <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+                </div>
+                <div
+                    id="list-container"
+                    *ngIf="
+                        (isUsernameValid && !isSameUsername && player2Username !== '' && this.liveLobbies.length > 0 && !lobbyJoined) ||
+                        lobbyJoined ||
+                        isEjectedFromLobby
+                    "
+                >
+                    <h2 id="mp-list-title" *ngIf="(!lobbyJoined || isEjectedFromLobby) && isUsernameValid">LISTE DES PARTIES MULTIJOUEUR</h2>
+                    <div id="button-actions">
+                        <button
+                            mat-raised-button
+                            *ngIf="
+                                (this.liveLobbies.length > 0 && !lobbyJoined && isUsernameValid && player2Username !== '') ||
+                                (isEjectedFromLobby && isUsernameValid && player2Username !== '')
+                            "
+                            [disabled]="this.liveLobbies.length <= 1"
+                            (click)="joinRandomLobby()"
+                            id="randomJoin"
+                        >
+                            Placement aléatoire <mat-icon>swap_vert</mat-icon>
+                        </button>
+                        <button
+                            mat-raised-button
+                            *ngIf="(this.liveLobbies.length > 0 || lobbyJoined) && !isEjectedFromLobby && !isSameUsername"
+                            [disabled]="!isLobbyExist"
+                            (click)="cancelJoin()"
+                            id="cancelJoin"
+                        >
+                            <mat-icon>exit_to_app</mat-icon> Annuler le Placement
+                        </button>
+                    </div>
+                    <div>
+                        <div *ngIf="(!lobbyJoined || isEjectedFromLobby) && isUsernameValid">
+                            <div id="live-lobbies" *ngIf="this.liveLobbies.length > 0">
+                                <table aria-describedby="live-lobbies" mat-table [dataSource]="liveLobbies" class="mat-elevation-z8">
+                                    <ng-container matColumnDef="host">
+                                        <th mat-header-cell *matHeaderCellDef>Hôte</th>
+                                        <td mat-cell *matCellDef="let lobby">{{ lobby.playerList[0].name }}</td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="timer">
+                                        <th mat-header-cell *matHeaderCellDef>Minuterie</th>
+                                        <td mat-cell *matCellDef="let lobby">{{ lobby.baseTimerValue }} s.</td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="dict">
+                                        <th mat-header-cell *matHeaderCellDef>Dictionnaire</th>
+                                        <td mat-cell *matCellDef="let lobby">{{ lobby.dictionary }}</td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="join">
+                                        <th mat-header-cell *matHeaderCellDef>Rejoindre</th>
+                                        <td mat-cell *matCellDef="let lobby">
+                                            <button (mousedown)="joinLobby(lobby.lobbyId)" mat-raised-button>
+                                                <mat-icon>control_point</mat-icon>
+                                            </button>
+                                        </td>
+                                    </ng-container>
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

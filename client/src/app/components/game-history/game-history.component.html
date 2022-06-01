@@ -1,0 +1,38 @@
+<div id="game-history-content">
+    <div *ngIf="isServerNotReady" class="not-ready">
+        <h1>En attente du serveur ...</h1>
+        <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+    </div>
+    <table aria-describedby="game-history" mat-table [dataSource]="gameLogsValue" class="game-history-table" *ngIf="!isServerNotReady">
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Date et heure de début de partie</th>
+            <td mat-cell *matCellDef="let gameHistory"><mat-icon *ngIf="gameHistory.isAbandoned">flag</mat-icon>{{ gameHistory.date }}</td>
+        </ng-container>
+        <ng-container matColumnDef="length">
+            <th mat-header-cell *matHeaderCellDef>Durée</th>
+            <td mat-cell *matCellDef="let gameHistory">{{ gameHistory.minutes }} : {{ gameHistory.seconds }}</td>
+        </ng-container>
+        <ng-container matColumnDef="player1">
+            <th mat-header-cell *matHeaderCellDef>Joueur 1</th>
+            <td mat-cell *matCellDef="let gameHistory">{{ gameHistory.playerInfos[0].name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="score1">
+            <th mat-header-cell *matHeaderCellDef>Pointage joueur 1</th>
+            <td mat-cell *matCellDef="let gameHistory">{{ gameHistory.playerInfos[0].score }}</td>
+        </ng-container>
+        <ng-container matColumnDef="player2">
+            <th mat-header-cell *matHeaderCellDef>Joueur 2</th>
+            <td mat-cell *matCellDef="let gameHistory">{{ gameHistory.playerInfos[1].name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="score2">
+            <th mat-header-cell *matHeaderCellDef>Pointage joueur 2</th>
+            <td mat-cell *matCellDef="let gameHistory">{{ gameHistory.playerInfos[1].score }}</td>
+        </ng-container>
+        <ng-container matColumnDef="gameMode">
+            <th mat-header-cell *matHeaderCellDef>Mode de jeu</th>
+            <td mat-cell *matCellDef="let gameHistory">{{ this.getGameModeDisplay(gameHistory.mode) }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnNames"></tr>
+    </table>
+</div>

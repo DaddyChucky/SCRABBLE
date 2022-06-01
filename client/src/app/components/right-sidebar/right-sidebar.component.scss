@@ -1,0 +1,16 @@
+.container {
+    height: auto;
+    width: 700px;
+    min-height: 97.5vh;
+    border-left: 1px ridge black;
+    padding: 10px;
+    display: flex;
+    vertical-align: middle;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #f4f9f962;
+}
+
+#dialog-box {
+    margin-top: 10px;
+}

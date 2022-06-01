@@ -1,0 +1,21 @@
+<div class="dialog-box-container">
+    <div #messageScroll id="container-message">
+        <div *ngFor="let message of chatMessages" [ngClass]="getMessageColorClass(message)" class="message-item">
+            <p *ngIf="message.author===3" class="dialog-box-time-center">{{ displayTimeFormat(message.date) }}</p>
+            <p *ngIf="message.author===1" class="dialog-box-time-right">{{selfPLayerName}} {{displayTimeFormat(message.date) }}</p>
+            <p *ngIf="message.author===2" class="dialog-box-time-left">{{opponentPlayerName}} {{displayTimeFormat(message.date) }}</p>
+            <p *ngIf="message.author===0||message.author===3" class="dialog-box-text-center">{{ message.text }}</p>
+            <p *ngIf="message.author===1" class="dialog-box-text-right">{{ message.text }}</p>
+            <p *ngIf="message.author===2" class="dialog-box-text-left">{{ message.text }}</p>
+        </div>
+    </div>
+    <form class="form-user-message" (ngSubmit)="submitInput()">
+        <mat-form-field appearance="outline" id="dialog-box-input-box">
+            <input matInput type="text" [(ngModel)]="this.userMessage" [ngModelOptions]="{ standalone: true }" #inputDialogBox maxlength="{{ maxLengthOfInput }}" placeholder="Entrez votre message ..." />
+            <mat-hint align="end">{{ inputDialogBox.value.length }} / {{ maxLengthOfInput }}</mat-hint>
+            <button matSuffix mat-icon-button id="send-button" type="submit" [disabled]="inputDialogBox.value.length < 1">
+                <mat-icon>send icon</mat-icon>
+            </button>
+        </mat-form-field>
+    </form>
+</div>

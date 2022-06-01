@@ -1,0 +1,47 @@
+.quest-card {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.151);
+}
+
+.quest {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.58);
+}
+
+.done {
+    color: rgb(168, 214, 115);
+}
+
+.toBeCompleted {
+    color: rgb(219, 189, 112);
+}
+
+.hiddenQuest {
+    color: transparent;
+    @supports (background-clip: border-box) or (-webkit-background-clip: border-box) {
+        background-clip: border-box;
+        -webkit-background-clip: border-box;
+        background-image: url(https://acegif.com/wp-content/gifs/starfall-gif-70.gif);
+        background-size: cover;
+    }
+}
+
+.showQuest {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.58);
+}
+
+.showQuest mat-icon {
+    color: rgb(168, 214, 115);
+}
+
+.quest-card mat-card-title {
+    color: black;
+    text-shadow: rgb(230, 190, 91) 3px 4px 5px;
+    padding-bottom: 10px;
+}
+
+.player {
+    color: white;
+    background-color: rgba(224, 182, 45, 0.772);
+}

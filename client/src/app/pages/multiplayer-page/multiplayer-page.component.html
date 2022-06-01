@@ -1,0 +1,77 @@
+<div class="background">
+    <app-home-btn></app-home-btn>
+    <div id="waiting-room">
+        <h1 class="title-page">Salle d'attente</h1>
+        <h2 *ngIf="isSolo && isClassic" class="subtitle-page">SOLO - CLASSIQUE</h2>
+        <h2 *ngIf="!isSolo && isClassic" class="subtitle-page">MULTIJOUEUR - CLASSIQUE</h2>
+        <h2 *ngIf="isSolo && !isClassic" class="subtitle-page">SOLO - LOG2990</h2>
+        <h2 *ngIf="!isSolo && !isClassic" class="subtitle-page">MULTIJOUEUR - LOG2990</h2>
+    </div>
+    <div class="mainPageContainer">
+        <div id="vs-container">
+            <button
+                matTooltip="Jouez contre un joueur virtuel"
+                id="change-to-solo-btn"
+                mat-raised-button
+                *ngIf="!this.isSolo"
+                type="button"
+                (click)="convertSolo()"
+            >
+                Changer en partie solo
+            </button>
+        </div>
+        <div>
+            <app-virtual-player-setting *ngIf="this.isSolo"></app-virtual-player-setting>
+            <div id="dicts" *ngIf="this.isChoiceDictionary">
+                <mat-grid-list cols="6"  rowHeight="75px" class="mat-grid-list">
+                <mat-grid-tile><mat-icon class="icon-def">import_contacts</mat-icon></mat-grid-tile>
+                <mat-grid-tile colspan="1" id="error">Dictionnaire indisponible ! Veuillez choisir un autre : </mat-grid-tile>
+                <mat-grid-tile colspan="4">
+                    <mat-form-field id="form-field-dico">
+                        <mat-select ngDefaultControl [(ngModel)]="this.currentLobby.dictionary" placeholder="Choisir...">
+                            <mat-option color="primary" *ngFor="let option of this.subjectDictionaries.getValue()" value="{{ option.title }}">
+                                {{ option.title }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+            </div>
+        </div>
+        <div *ngIf="!this.isSolo" id="adversary">
+            <div *ngIf="!this.lobbyIsFull()" class="waiting-info">
+                <span>En attente d'un adversaire</span>
+                <div class="dot-flashing flashing-dots"></div>
+            </div>
+            <mat-progress-bar *ngIf="!this.lobbyIsFull()" class="progress-bar" mode="indeterminate"> </mat-progress-bar>
+            <div *ngFor="let player of this.lobbyInfo.playerList" class="vp-wrapper">
+                <p *ngIf="this.lobbyIsFull() && player.name !== this.hostInfo.name">
+                    Votre adversaire : <span class="vp-name" *ngIf="player.name !== this.hostInfo.name">{{ player.name }}</span>
+                </p>
+                <button
+                    *ngIf="this.lobbyIsFull() && player.name !== this.hostInfo.name"
+                    mat-raised-button
+                    [disabled]="!this.lobbyIsFull()"
+                    (click)="this.rejectPlayer()"
+                >
+                    Rejeter cet adversaire <mat-icon id="reject-adversary-icon">gavel</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div id="action-model" class="start-btns">
+
+            <button matTooltip="Retour aux paramètres de partie" id="warning-button" mat-raised-button (click)="cancelGame()">
+                Annuler <mat-icon class="warning-icon">clear</mat-icon>
+            </button>
+            <div *ngIf="this.isSolo && !this.lobbyIsFull()" matTooltip="Veuillez attendre la connexion d'un autre joueur...">
+                <button mat-raised-button [disabled]="!this.lobbyIsFull()">Débuter <mat-icon>help</mat-icon></button>
+            </div>
+            <div *ngIf="this.lobbyIsFull()" matTooltip="Jouer !">
+                <button id="success-button" mat-raised-button (click)="this.redirectPlayer()">
+                    Débuter <mat-icon class="success-icon">play_arrow</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

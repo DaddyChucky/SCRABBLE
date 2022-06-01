@@ -1,0 +1,28 @@
+<mat-drawer-container class="sidebar" [hasBackdrop]="true">
+    <mat-drawer #drawer class="hidden-sidebar" mode="push">
+        <h2>Réserve</h2>
+        <h3>Tuiles restantes : {{ letterBagSize }}</h3>
+        <p>[lettre : quantité]</p>
+        <div id="letter-bag-content">
+            <span *ngFor="let letter of letterBag.letters">
+                <strong>{{ letter.tile.name }} </strong>: {{ letter.quantity }}</span
+            >
+        </div>
+    </mat-drawer>
+    <div class="container" id="main">
+        <div class="game-title">
+            <h1>Scrabble</h1>
+            <h3>Mode {{ gameMode }}</h3>
+        </div>
+        <div id="informationArea">
+            <app-information-area></app-information-area>
+        </div>
+        <button type="button" (click)="drawer.toggle()" class="letter-bag">
+            <div class="image-container">
+                <img src="assets/img/letter-bag.png" alt="letter bag" id="letter-bag-img" class="letter-bag" />
+                <p class="size-centered">{{ letterBagSize }}</p>
+            </div>
+        </button>
+        <app-buttons-area id="buttons"></app-buttons-area>
+    </div>
+</mat-drawer-container>

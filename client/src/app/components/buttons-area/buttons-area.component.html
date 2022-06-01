@@ -1,0 +1,13 @@
+<div *ngIf="!isEndGame">
+    <button (click)="sendPlaceCommand()" class="left-side-buttons" id="play-button" [disabled]="!isPlayerTurn">
+        Jouer<mat-icon>play_arrow</mat-icon>
+    </button>
+    <button (click)="passTurn()" class="left-side-buttons" id="skip-button" [disabled]="!isPlayerTurn">Passer<mat-icon>skip_next</mat-icon></button>
+    <button (click)="popGiveUp()" *ngIf="!isEndGame" class="left-side-buttons" id="give-up-button">
+        Abandonner<mat-icon>outlined_flag</mat-icon>
+    </button>
+</div>
+<div *ngIf="isEndGame">
+    <button class="left-side-buttons" id="end-game-button" (click)="this.openEndGameDialog()">Résultats partie <mat-icon>equalizer</mat-icon></button>
+    <button class="left-side-buttons" id="leave-button" routerLink="/home">Quitter<mat-icon>exit_to_app</mat-icon></button>
+</div>

@@ -1,0 +1,27 @@
+#game-history-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-history-table {
+    width: 100%;
+    text-align: center;
+    background-color: #cde1de;
+}
+
+.game-history-table th {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center !important;
+}
+
+.not-ready {
+    color: white;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}

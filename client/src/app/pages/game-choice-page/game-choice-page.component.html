@@ -1,0 +1,13 @@
+<div class="background">
+    <app-home-btn></app-home-btn>
+    <div class="mainPageContainer">
+        <h1 class="title-page">Choix de partie</h1>
+        <h2 *ngIf="isModeClassic" class="subtitle-page">CLASSIQUE</h2>
+        <h2 *ngIf="!isModeClassic" class="subtitle-page">LOG2990</h2>
+        <ul class="buttonsList">
+            <button mat-raised-button id="solo" routerLink="/parameters" (click)="gameModeChoice(true)">Partie solo</button>
+            <button mat-raised-button id="creermulti" routerLink="/parameters" (click)="gameModeChoice(false)">Créer une partie multijoueur</button>
+            <button mat-raised-button id="joindremulti" routerLink="/multiplayerChoice">Rejoindre une partie multijoueur</button>
+        </ul>
+    </div>
+</div>

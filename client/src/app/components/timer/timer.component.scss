@@ -1,0 +1,47 @@
+.timer {
+    position: relative;
+}
+
+#timer-img {
+    width: 150px;
+}
+
+.timer-centered {
+    position: absolute;
+    color: #c09f31;
+    text-shadow: #c09f316e 3px 3px;
+    text-align: center;
+    font-size: 65px;
+    font-weight: bold;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pulsing-timer {
+    animation: pulsing-timer-animation 1.5s linear infinite;
+}
+
+.pulsing-timer img {
+    filter: invert(11%) sepia(49%) saturate(6000%) hue-rotate(353deg) brightness(90%) contrast(93%);
+}
+
+.pulsing-timer p {
+    color: #dad6d6;
+    text-shadow: #4c05056e 3px 3px;
+}
+
+@keyframes pulsing-timer-animation {
+    0% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+        -webkit-transform: scale(0.85);
+        transform: scale(0.85);
+    }
+    100% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}

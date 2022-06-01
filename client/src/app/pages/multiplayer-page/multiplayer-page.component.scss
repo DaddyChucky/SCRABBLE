@@ -1,0 +1,144 @@
+h1 {
+    color: white;
+}
+
+.buttons {
+    font-family: Roboto;
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.7));
+    border-radius: 5%;
+    font-size: 250%;
+    padding: 3% 6%;
+    margin: 5px;
+    width: 35%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#reject {
+    background-color: rgb(238, 140, 130);
+}
+.icon-def {
+    font-size: 40px;
+    margin-top: -15%;
+    color: rgb(0, 7, 21);
+}
+#form-field-dico {
+    width: 50%;
+}
+
+#dicts .mat-grid-tile{
+    width: 50%;
+    height: 50%;
+    text-align: left !important;
+
+}
+
+#dicts #error {
+    color:red
+}
+
+#dicts .mat-grid-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
+}
+
+
+.mainPageContainer {
+    background: #fff;
+    font-size: 18px;
+    font-family: 'Roboto';
+    padding: 2%;
+    box-shadow: 5px 5px rgb(0, 7, 21);
+    border: 1px groove rgb(0, 7, 21);
+    border-radius: 2%;
+    text-align: left;
+    margin-top: 8.5%;
+    color: black;
+}
+
+.start-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+.start-btns button {
+    width: 140px;
+    height: 60px;
+    font-size: 20px;
+}
+
+#change-to-solo-btn {
+    background: rgb(0, 7, 21);
+    color: white;
+}
+
+#adversary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.vp-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: rgb(0, 7, 21);
+}
+
+::ng-deep .mat-progress-bar {
+    border-radius: 2px;
+}
+
+#waiting-room {
+    margin-top: 10%;
+}
+
+#vs-container {
+    margin-bottom: 4%;
+    margin-top: -1%;
+}
+
+.flashing-dots {
+    position: relative;
+    left: 25px;
+    top: 5px;
+}
+
+.progress-bar {
+    width: 75% !important;
+}
+
+#reject-adversary-icon {
+    font-size: 18px;
+}
+
+#action-model {
+    margin-top: 5%;
+}
+
+#warning-button {
+    border: 1px solid indianred;
+}
+
+.warning-icon {
+    color: indianred;
+}
+
+#success-button {
+    border: 1px solid green;
+}
+
+.success-icon {
+    color: green;
+}

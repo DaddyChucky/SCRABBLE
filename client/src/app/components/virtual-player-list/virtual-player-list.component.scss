@@ -1,0 +1,42 @@
+#virtual-player-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.virtual-table {
+    width: 100%;
+    text-align: center;
+    background-color: #d5b2a8;
+}
+
+.virtual-table th {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center !important;
+}
+
+.virtual-table button {
+    background: #b05b48;
+    color: white;
+    text-align: center;
+    align-self: center;
+}
+
+#virtual-player-content .title-player {
+    font-weight: bold;
+    padding-bottom: 0px;
+    margin-bottom: 2%;
+    color: white;
+    font-size: 30px;
+    text-shadow: #b05b48 3px 5px;
+}
+
+.virtual-table button:disabled {
+    background-color: #b05b48;
+    opacity: 20%;
+}
+
+.player-input:disabled {
+    color: black;
+}

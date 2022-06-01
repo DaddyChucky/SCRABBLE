@@ -1,0 +1,48 @@
+#player-informations {
+    padding: 0px 10px;
+    min-height: 60px;
+    margin-top: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 10px 25px 35px;
+    font-size: 16px;
+}
+
+#player-name {
+    padding: 0px;
+    height: 100%;
+    margin: 0px;
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.informations-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+#player-score {
+    font-weight: bold;
+}
+
+.isNotTurn {
+    color: black;
+    box-shadow: 3px 3px 3px black;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.577);
+}
+
+.isTurn {
+    color: black;
+    box-shadow: 3px 3px 3px black;
+    border: 2px solid black;
+    background-color: rgba(224, 182, 45, 0.772);
+}

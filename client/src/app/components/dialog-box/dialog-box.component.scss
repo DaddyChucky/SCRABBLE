@@ -1,0 +1,88 @@
+.dialog-box-container {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 700px;
+}
+
+#container-message {
+    margin-top: 15px;
+    height: 85%;
+    background-color: #ddd1aa;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.message-item {
+    text-align: justify;
+    padding: 10px;
+    display: block;
+    clear: both;
+}
+
+.dialog-box-text-left {
+    align-self: center;
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+.dialog-box-text-right {
+    align-self: center;
+    margin-right: 20px;
+    font-size: 17px;
+    text-align: right;
+}
+
+.dialog-box-text-center {
+    align-self: center;
+    font-size: 17px;
+    text-align: center;
+}
+
+.dialog-box-time-left {
+    margin-left: 5px;
+}
+
+.dialog-box-time-right {
+    margin-right: 5px;
+    text-align: right;
+}
+
+.dialog-box-time-center {
+    margin-right: 5px;
+    text-align: center;
+}
+
+#dialog-box-input-box {
+    width: 100%;
+}
+
+.current-player {
+    color: rgb(58, 143, 69);
+    background-color: white;
+    border-color: rgb(58, 143, 69);
+    border-radius: 25px;
+    width: fit-content;
+    float: right;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.opponent-player {
+    color: rgb(44, 103, 158);
+    background-color: white;
+    border-color: rgb(44, 103, 158);
+    border-radius: 25px;
+    width: fit-content;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.system {
+    color: rgb(107, 84, 18);
+}
+
+.error {
+    color: rgb(165, 49, 29);
+}

@@ -1,0 +1,14 @@
+<app-timer id="timer"></app-timer>
+<div id="grid-container">
+    <div id="container-grid-slider">
+        <mat-chip-list *ngIf="isValidStartPosition" id="place-command" class="mat-chip-list-stacked">
+            <mat-chip color="primary" selected>! {{ placeCommand.name }}</mat-chip>
+            <mat-chip color="primary" selected *ngIf="squareClickName"> {{ squareClickName }}</mat-chip>
+            <mat-chip color="primary" selected> {{ placeCommand.direction }}</mat-chip>
+            <mat-chip color="primary" selected *ngIf="placeCommand.letters !== ''">{{ placeCommand.letters }}</mat-chip>
+        </mat-chip-list>
+        <canvas id="canvas" #gridCanvas (click)="updatePositionOnClick($event)" [attr.width]="width" [attr.height]="height"></canvas>
+        <app-slider-font-size (fontSizeChange)="redrawTilesWithNewFontSize($event)"></app-slider-font-size>
+    </div>
+    <app-easel></app-easel>
+</div>

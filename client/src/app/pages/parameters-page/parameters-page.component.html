@@ -1,0 +1,120 @@
+<div class="background">
+    <app-home-btn></app-home-btn>
+    <div id="params">
+        <h1 class="title-page">Paramètres de partie</h1>
+        <h2 *ngIf="isSoloMode && isClassic" class="subtitle-page">SOLO - CLASSIQUE</h2>
+        <h2 *ngIf="!isSoloMode && isClassic" class="subtitle-page">MULTIJOUEUR - CLASSIQUE</h2>
+        <h2 *ngIf="isSoloMode && !isClassic" class="subtitle-page">SOLO - LOG2990</h2>
+        <h2 *ngIf="!isSoloMode && !isClassic" class="subtitle-page">MULTIJOUEUR - LOG2990</h2>
+        <div class="mainPageContainer">
+            <mat-grid-list cols="6" rowHeight="75px" class="mat-grid-list">
+                <mat-grid-tile><mat-icon class="icon-def">person_pin</mat-icon></mat-grid-tile>
+                <mat-grid-tile>Nom :</mat-grid-tile>
+                <mat-grid-tile colspan="4">
+                    <mat-form-field appearance="fill" class="username-fill" id="form-field-valid-username">
+                        <input
+                            (input)="(isUsernameValid)"
+                            type="text"
+                            matInput
+                            ngDefaultControl
+                            [(ngModel)]="username"
+                            [ngModelOptions]="{ standalone: true }"
+                            placeholder="Ex. Roger"
+                        />
+                        <button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username = ''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <span *ngIf="this.username" id="info-bar">
+                        <mat-icon matTooltip="Nom d'utilisateur invalide" *ngIf="!isUsernameValid" class="warning">error</mat-icon>
+                        <mat-icon matTooltip="Nom d'utilisateur valide" *ngIf="isUsernameValid" class="success">check</mat-icon>
+                    </span>
+                </mat-grid-tile>
+                <mat-grid-tile><mat-icon class="icon-def">timer</mat-icon></mat-grid-tile>
+                <mat-grid-tile>Minuterie :</mat-grid-tile>
+                <mat-grid-tile colspan="4">
+                    <div id="timer">
+                        <button mat-fab matTooltip="Décrémenter de 30 secondes" id="dec-timer" (click)="decrementTimer()">-</button>
+                        {{ timerValueInSeconds }} s.
+                        <button mat-fab matTooltip="Incrémenter de 30 secondes" (click)="incrementTimer()" id="inc-timer">+</button>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile><mat-icon class="icon-def">import_contacts</mat-icon></mat-grid-tile>
+                <mat-grid-tile>Dictionnaire : </mat-grid-tile>
+                <mat-grid-tile colspan="4">
+                    <mat-form-field id="form-field-dico">
+                        <mat-select ngDefaultControl [(ngModel)]="this.currentDictionary" placeholder="Choisir...">
+                            <mat-option color="primary" *ngFor="let option of dictOptions.getValue()" value="{{ option.title }}" matTooltip="{{option.description}}">
+                                {{ option.title }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <ng-container id="proceed-container" align="center">
+                <div id="proceed-inside-container" class="div-btn-suivant">
+                    <div matTooltip="Procéder à la salle d'attente">
+                        <button
+                            id="proceed-btn"
+                            mat-raised-button
+                            *ngIf="this.currentDictionary && this.username && this.isUsernameValid"
+                            (click)="linkChoice()"
+                        >
+                            Suivant <mat-icon id="proceed-btn-icon" class="helper-btn-size">play_arrow</mat-icon>
+                        </button>
+                    </div>
+                    <div matTooltip="Vous devez choisir un dictionnaire">
+                        <button
+                            mat-raised-button
+                            [disabled]="true"
+                            *ngIf="this.isUsernameValid && !this.currentDictionary && this.username"
+                            (click)="linkChoice()"
+                        >
+                            Suivant <mat-icon class="helper-btn-size">help</mat-icon>
+                        </button>
+                    </div>
+                    <div matTooltip="Vous devez entrer un nom d'utilisateur valide">
+                        <button
+                            mat-raised-button
+                            [disabled]="true"
+                            *ngIf="!this.isUsernameValid && !this.currentDictionary && this.username"
+                            (click)="linkChoice()"
+                        >
+                            Suivant <mat-icon class="helper-btn-size">help</mat-icon>
+                        </button>
+                    </div>
+                    <div matTooltip="Vous devez entrer un nom d'utilisateur">
+                        <button
+                            mat-raised-button
+                            [disabled]="true"
+                            *ngIf="!this.isUsernameValid && this.currentDictionary && !this.username"
+                            (click)="linkChoice()"
+                        >
+                            Suivant <mat-icon class="helper-btn-size">help</mat-icon>
+                        </button>
+                    </div>
+                    <div matTooltip="Vous devez entrer un nom d'utilisateur valide">
+                        <button
+                            mat-raised-button
+                            [disabled]="true"
+                            *ngIf="!this.isUsernameValid && this.currentDictionary && this.username"
+                            (click)="linkChoice()"
+                        >
+                            Suivant <mat-icon class="helper-btn-size">help</mat-icon>
+                        </button>
+                    </div>
+                    <div matTooltip="Vous devez entrer un nom d'utilisateur et choisir un dictionnaire">
+                        <button
+                            mat-raised-button
+                            disabled
+                            *ngIf="!this.currentDictionary && !this.username && !this.isUsernameValid"
+                            (click)="linkChoice()"
+                        >
+                            Suivant <mat-icon class="helper-btn-size">help</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

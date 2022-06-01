@@ -1,0 +1,16 @@
+<div id="container-slider">
+    <mat-icon class="font-size-icon">zoom_in</mat-icon>
+    <mat-slider
+        class="slider-fontSize"
+        color="primary"
+        [max]="maxSizeValue"
+        [min]="minSizeValue"
+        [step]="step"
+        [thumbLabel]="true"
+        [(ngModel)]="fontSizeValue"
+        [vertical]="true"
+        (change)="changeFontSizeOfTiles()"
+    >
+    </mat-slider>
+    <mat-icon class="font-size-icon">zoom_out</mat-icon>
+</div>

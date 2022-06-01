@@ -1,0 +1,68 @@
+.upload-container {
+    width: 420px;
+    height: 375px;
+    background-color: #ddcad0 !important;
+    padding: 35px !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.upload-container button {
+    background: #713e51;
+    color: white;
+    text-align: center;
+    align-self: center;
+}
+
+.upload-container button:disabled {
+    background-color: #713e51;
+    opacity: 20%;
+}
+
+#title {
+    font-weight: bold;
+    color: #713e51;
+    font-size: 25px;
+    text-shadow: white 1px 2px;
+}
+
+.form-add-dictionary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.download-dictionary {
+    width: 100%;
+    border: 3px outset #713e51;
+    border-radius: 10px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    align-self: flex-start;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
+.dictionary-label mat-chip {
+    background: #955d71;
+    color: white;
+    opacity: 0.75;
+}
+
+mat-icon {
+    vertical-align: middle;
+}
+
+.dictionary-input {
+    margin-top: 1%;
+    align-self: center;
+}
+
+#invalid-dict {
+    margin-top: 3px;
+    margin-bottom: 0px;
+}

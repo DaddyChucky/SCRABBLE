@@ -1,0 +1,38 @@
+<div class="upload-container">
+    <h2 mat-dialog-title id="title">Choisir un dictionnaire à téléverser</h2>
+    <div mat-dialog-content>
+        <div class="form-add-dictionary">
+            <div class="download-dictionary">
+                <mat-chip-list class="dictionary-label">
+                    <mat-chip disabled="true">1. Télécharger un gabarit de dictionnaire à remplir</mat-chip></mat-chip-list
+                >
+                <br />
+                <a href="assets/dictionaryTemplate.json" download="dictionaryTemplate.json" class="dictionary-input">
+                    <button mat-raised-button><mat-icon>save_alt</mat-icon>Gabarit de fichier JSON</button>
+                </a>
+            </div>
+            <br />
+            <div class="download-dictionary">
+                <mat-chip-list class="dictionary-label"> <mat-chip disabled="true">2. Téléverser un dictionnaire</mat-chip></mat-chip-list>
+                <br />
+                <button type="button" mat-raised-button (click)="fileInput.click()" class="dictionary-input">
+                    <mat-label
+                        ><mat-icon> attach_file</mat-icon>
+                        <span *ngIf="!isValidSubmission">Parcourir vos fichiers</span>
+                        <span *ngIf="isValidSubmission">
+                            {{ fileName }}
+                        </span>
+                    </mat-label>
+                </button>
+                <input hidden type="file" #fileInput id="upload" [(ngModel)]="file" accept=".json" (change)="validateDict($event)" />
+                <h4 id="invalid-dict" *ngIf="hasAddedDictionary && !isValidSubmission">Veuillez ajouter un dictionnaire valide (titre unique)</h4>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions align="center">
+        <button mat-button mat-dialog-close (click)="resetFile()"><mat-icon>cancel</mat-icon>Annuler</button>
+        <button mat-button [disabled]="!isValidSubmission" (click)="sendNewDictionary()" [mat-dialog-close]="true">
+            <mat-icon>save_alt</mat-icon>Téléverser
+        </button>
+    </div>
+</div>

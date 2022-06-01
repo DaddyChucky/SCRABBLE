@@ -1,0 +1,100 @@
+.container {
+    height: auto;
+    width: 250px;
+    min-height: 97.5vh;
+    border-right: 1px ridge black;
+    padding: 10px;
+    display: flex;
+    vertical-align: middle;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#informationArea {
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+#buttons {
+    margin-top: 20px;
+    align-items: flex-end;
+}
+
+h1 {
+    font-family: 'Roboto';
+    font-size: 48px;
+    margin-top: 20px;
+    padding: 0px;
+    text-shadow: 2px 2px 4px white;
+}
+
+#letter-bag-img {
+    border: none;
+    background-color: transparent;
+}
+
+.letter-bag {
+    width: 90%;
+    background-color: #d4af37d8;
+    border-radius: 30%;
+    align-self: center;
+}
+
+.sidebar {
+    background-color: #f4f9f962;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+.hidden-sidebar {
+    padding: 0px;
+    margin: 0px;
+    width: 80%;
+    background-color: #c09f31;
+    border: 4px double black;
+}
+
+h2 {
+    text-decoration: underline;
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+#letter-bag-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 80%;
+    padding: 0px;
+    margin: 0px;
+    padding-top: 20px;
+    border-top: 4px double black;
+    font-size: larger;
+}
+
+.image-container {
+    position: relative;
+}
+
+.size-centered {
+    position: absolute;
+    color: #c09f31;
+    text-shadow: #c09f316e 3px 3px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-title {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.game-title h3 {
+    font-size: 20px;
+    font-family: 'Roboto';
+    text-shadow: 2px 2px 4px white;
+}

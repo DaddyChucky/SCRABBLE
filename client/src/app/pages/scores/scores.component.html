@@ -1,0 +1,57 @@
+<div id="main-container">
+    <h2>Meilleurs scores</h2>
+    <div *ngIf="classicScores.getValue() && !classicScores.getValue().length || logScores.getValue() && !logScores.getValue().length" class="flexer">
+        <div class="waiting-info">
+            <h1>En attente du serveur</h1>
+        </div>
+        <mat-progress-bar class="progress-bar" mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div *ngIf="classicScores.getValue() && classicScores.getValue().length">
+    <mat-tab-group id="group" mat-align-tabs="center">
+        <mat-tab label="Mode classique">
+            <table aria-describedby="classic-scores" id="main-table" mat-table [dataSource]="classicScores.getValue()" class="mat-elevation-z8">
+                <ng-container matColumnDef="medals">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let score; let i = index">
+                        <mat-icon *ngIf="i === 0" class="first-medal">stars</mat-icon>
+                        <mat-icon *ngIf="i === 1" class="second-medal">stars</mat-icon>
+                        <mat-icon *ngIf="i === 2" class="third-medal">stars</mat-icon>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="names">
+                    <th mat-header-cell *matHeaderCellDef>Nom</th>
+                    <td mat-cell *matCellDef="let score">{{ score.names }}</td>
+                </ng-container>
+                <ng-container matColumnDef="score">
+                    <th mat-header-cell *matHeaderCellDef>Score</th>
+                    <td mat-cell *matCellDef="let score">{{ score.score }}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedClassicColumn"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedClassicColumn"></tr>
+            </table>
+        </mat-tab>
+        <mat-tab label="Mode LOG2990">
+            <table aria-describedby="2990-scores" id="alternate-table" mat-table [dataSource]="logScores.getValue()" class="mat-elevation-z8">
+                <ng-container matColumnDef="medals">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let score; let i = index">
+                        <mat-icon *ngIf="i === 0" class="first-medal">stars</mat-icon>
+                        <mat-icon *ngIf="i === 1" class="second-medal">stars</mat-icon>
+                        <mat-icon *ngIf="i === 2" class="third-medal">stars</mat-icon>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="names">
+                    <th mat-header-cell *matHeaderCellDef>Nom</th>
+                    <td mat-cell *matCellDef="let score">{{ score.names }}</td>
+                </ng-container>
+                <ng-container matColumnDef="score">
+                    <th mat-header-cell *matHeaderCellDef>Score</th>
+                    <td mat-cell *matCellDef="let score">{{ score.score }}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedClassicColumn"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedClassicColumn"></tr>
+            </table>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+</div>

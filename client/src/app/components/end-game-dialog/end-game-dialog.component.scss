@@ -1,0 +1,79 @@
+.end-game-container {
+    width: 550px;
+    height: 550px;
+    padding: 35px !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.winner {
+    @supports (background-clip: border-box) or (-webkit-background-clip: border-box) {
+        background-clip: border-box;
+        -webkit-background-clip: border-box;
+        background-image: url(https://acegif.com/wp-content/gif/confetti-16.gif);
+        background-size: cover;
+    }
+}
+
+.loser {
+    @supports (background-clip: border-box) or (-webkit-background-clip: border-box) {
+        background-clip: border-box;
+        -webkit-background-clip: border-box;
+        background-image: url(https://i.imgur.com/I1NMmtL.gif);
+        background-size: cover;
+    }
+}
+
+.end-game-container button {
+    background: goldenrod;
+    color: black;
+    text-align: center;
+    align-self: center;
+    font-size: 18px;
+}
+
+.end-game-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+}
+
+.title-end-game {
+    padding-top: 20px;
+    padding-bottom: 0px;
+    font-weight: bold;
+    color: goldenrod;
+    font-size: 60px;
+}
+
+.title-end-game mat-icon {
+    font-size: 45px;
+    vertical-align: center;
+}
+
+.player-infos {
+    background-color: rgba(234, 180, 43, 0.7);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 80px;
+}
+
+.player-infos mat-card-subtitle {
+    font-size: 18px;
+}
+
+.player-infos mat-chip {
+    text-align: center;
+    vertical-align: center;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}

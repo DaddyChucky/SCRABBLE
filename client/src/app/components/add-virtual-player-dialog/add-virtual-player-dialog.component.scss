@@ -1,0 +1,76 @@
+.add-virtual-container {
+    width: 350px;
+    height: 370px;
+    background-color: #ddc7c3 !important;
+    padding: 35px !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.add-virtual-container button {
+    background: #b05b48;
+    color: white;
+    text-align: center;
+    align-self: center;
+}
+
+.add-virtual-container button:disabled {
+    background-color: #b05b48;
+    opacity: 20%;
+}
+
+.add-virtual-player-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    font-weight: bold;
+    color: #b05b48;
+    font-size: 30px;
+    text-shadow: white 2px 3px;
+}
+
+.setting {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2%;
+    border: 3px outset #b05b48;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.setting-label {
+    align-self: flex-start;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
+.setting-input {
+    margin-top: 1%;
+    align-self: center;
+}
+
+.setting-label mat-chip {
+    background: #b05b48 !important;
+    color: white;
+    opacity: 0.75;
+}
+
+.mat-button-toggle {
+    background-color: #5d3a30b4;
+    color: white;
+    border-color: #5d3a30;
+}
+
+.mat-button-toggle-checked {
+    background: #b05b48;
+    font-weight: bold;
+}

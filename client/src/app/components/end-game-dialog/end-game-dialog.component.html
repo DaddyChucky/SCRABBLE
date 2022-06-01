@@ -1,0 +1,40 @@
+<div class="end-game-container" [ngClass]="this.isWinnerCSSClass()">
+    <h2 mat-dialog-title class="title-end-game">{{ endGameMessage }}<mat-icon *ngIf="!isWinner">sentiment_very_dissatisfied</mat-icon></h2>
+    <div mat-dialog-content>
+        <div class="end-game-infos">
+            <div class="easel-state">
+                <mat-card class="player-infos">
+                    <mat-card-title>
+                        <mat-icon *ngIf="isWinner">star</mat-icon> {{ currentPlayer.name }} <mat-icon *ngIf="isWinner">star</mat-icon></mat-card-title
+                    >
+                    <mat-card-subtitle>Score : {{ currentPlayer.score }}</mat-card-subtitle>
+                    <mat-card-subtitle>Lettres restantes : </mat-card-subtitle>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let letter of this.getRemainingLetters(currentPlayer.tiles)">
+                            {{ letter }}
+                        </mat-chip>
+                    </mat-chip-list>
+                </mat-card>
+                <br />
+                <mat-card class="player-infos">
+                    <mat-card-title>
+                        <mat-icon *ngIf="!isWinner">star</mat-icon> {{ opponentPlayer.name }}
+                        <mat-icon *ngIf="!isWinner">star</mat-icon></mat-card-title
+                    >
+                    <mat-card-subtitle>Score : {{ opponentPlayer.score }}</mat-card-subtitle>
+                    <mat-card-subtitle>Lettres restantes : </mat-card-subtitle>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let letter of this.getRemainingLetters(opponentPlayer.tiles)">
+                            {{ letter }}
+                        </mat-chip>
+                    </mat-chip-list>
+                </mat-card>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div mat-dialog-actions align="center">
+        <button mat-button mat-dialog-close [mat-dialog-close]="true"><mat-icon>cancel</mat-icon>Retour au jeu</button>
+        <button mat-button routerLink="/home" [mat-dialog-close]="true"><mat-icon>exit_to_app</mat-icon>Retour à l'accueil</button>
+    </div>
+</div>
