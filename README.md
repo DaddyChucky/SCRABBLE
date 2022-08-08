@@ -21,8 +21,8 @@ Ayez du plaisir !
 Have fun!
 
 ## Contributeurs / Contributors:
-[Amine Bourdache](https://github.com/brdch),
-[Justin Lachapelle](https://github.com/justinlachap),
-[Charles De Lafontaine](https://github.com/DaddyChucky),
-[Geneviève Pelletier-McDuff](https://github.com/GenevievePMD) and
-[Alexandre Turcotte](https://github.com/Lopik45)
+- [Amine Bourdache](https://github.com/brdch)
+- [Justin Lachapelle](https://github.com/justinlachap)
+- [Charles De Lafontaine](https://github.com/DaddyChucky)
+- [Geneviève Pelletier-McDuff](https://github.com/GenevievePMD)
+- [Alexandre Turcotte](https://github.com/Lopik45)
