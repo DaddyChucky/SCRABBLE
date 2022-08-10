@@ -20,7 +20,7 @@ Ayez du plaisir !
 
 Have fun!
 
-## Contributeurs / Contributors:
+## Auteurs / Authors:
 - [Amine Bourdache](https://github.com/brdch)
 - [Justin Lachapelle](https://github.com/justinlachap)
 - [Charles De Lafontaine](https://github.com/DaddyChucky)
